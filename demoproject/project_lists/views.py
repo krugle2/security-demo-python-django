@@ -24,9 +24,7 @@ def delete_list(request):
             with connection.cursor() as cursor:
                 cursor.execute('DELETE FROM projects_item where project_id in %s', [list_ids])
                 cursor.execute('DELETE FROM projects_projectparameter where project_id in %s', [list_ids])
-                # a = None
-                # a.foo
-                cursor.execute('DELETE FROM projects_project where id in %s AND user_id=%s', [list_ids, request.user.id])
+                cursor.execute('DELETE FROM projects_project where id in %s AND user_id=%s', [list_ids])
                 row = cursor.fetchone()
         return Response({ 'status': 'OK'})
     except IntegrityError as e:
