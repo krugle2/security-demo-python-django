@@ -31,7 +31,7 @@ def list_items(request):
             response = Response(data)
 
             if origin:
-                response['Access-Control-Allow-Origin'] = 'origin'
+                response['Access-Control-Allow-Origin'] = origin
             else:
                 response['Access-Control-Allow-Origin'] = 'www.secure-bank.com'
 
